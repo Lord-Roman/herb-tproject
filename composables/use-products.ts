@@ -71,37 +71,7 @@ export const useProducts = () => {
     });
   };
 
-
-  const getSingleProductFile = async (id:string): Promise<Product | null> => {
-    try {
-      return await getSingleProductFileAPI(id);
-    } catch (e: unknown) {
-      if ((e as Error).status === ApiStatus.Unauthorized) {
-        await refresh();
-        return await getSingleProductFileAPI(id);
-      }
-      toast.add({
-        title: "Ошибка",
-        color: "error",
-        description: ((e as Error).data?.detail as string) ?? "",
-      });
-      return null;
-    }
-  };
-
-  // Метод для получения всех данных об одном продукте
-  const getSingleProductFileAPI = async (id:string): Promise<Product> => {
-    return await $fetch<Product>(`/api/product_files/${id}`, {
-      method: Method.GET,
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    });
-  };
-
-
   return {
-    getSingleProductFile,
     getAllProductFiles,
     uploadProductFiles
   };

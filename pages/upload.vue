@@ -3,7 +3,7 @@ import { useAuthorization } from "~/composables/use-authorization";
 import { useProducts } from "~/composables/use-products";
 import type { Pagination } from "#shared/types/pagination";
 import CarouselComponent from "~/components/carousel-component.vue";
-import Uploadfiles from "~/components/uploadfiles.vue";
+import Uploadfiles from "~/components/upload-files.vue";
 import type { Product } from "~/shared/types/product";
 
 const { logout } = useAuthorization();

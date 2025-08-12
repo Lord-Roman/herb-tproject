@@ -29,4 +29,10 @@ export default defineNuxtConfig({
   routeRules: {
     "/api/**": { proxy: { to: "https://1cut.ps-team.ru/api/**" } },
   },
+
+  runtimeConfig: {
+    public: {
+      media: "https://1cut.ps-team.ru/media",
+    },
+  },
 });
